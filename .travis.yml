@@ -4,11 +4,12 @@ matrix:
   include:
   - name: Core
     language: objective-c
+    os: osx
     osx_image: xcode10.2
     cache: yarn
-    before_script:
+    before_install:
     - pod repo update
-    - brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/6e183b224dc20d6dc7e82ea9ea52bf18dcf1ae3c/Formula/xcodegen.rb
+    - brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/cbb582dbc047c1273dd1bcfe9bbb962f6a63b940/Formula/xcodegen.rb
     script:
     - yarn health
     after_success:
@@ -27,11 +28,12 @@ matrix:
     - yarn build-examples --target android
   - name: iOS Examples
     language: objective-c
+    os: osx
     osx_image: xcode10.2
     cache: cocoapods
-    before_script:
+    before_install:
     - pod repo update
-    - brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/6e183b224dc20d6dc7e82ea9ea52bf18dcf1ae3c/Formula/xcodegen.rb
+    - brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/cbb582dbc047c1273dd1bcfe9bbb962f6a63b940/Formula/xcodegen.rb
     script:
     - yarn build-examples --target ios
 before_install:
